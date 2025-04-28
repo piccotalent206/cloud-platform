@@ -1,0 +1,37 @@
+#
+# PostgreSQL DATABASE
+#
+DB_HOST='localhost'
+DB_PORT='5432'
+DB_USERNAME='postgres'
+DB_PASSWORD='admin123'
+DB_NAME='spurtcms'
+
+#
+#Keys
+#
+ACCESS_SECRET='!@#$%^&*()'
+JWT_SECRET = '!@#$%^&*()'
+
+#
+# Cors Allowed Origin
+#
+DOMAIN_URL ='https://demo.spurtcms.com/'
+PORT='8081'
+
+#
+# Mail Conf
+#
+MAIL_USERNAME='piccotvm13@gmail.com'
+MAIL_PASSWORD='qtdxauufaagfngny'
+
+#
+#Time Zone
+#
+TIME_ZONE = 'Asia/Kolkata'
+
+#
+#smtp configurations
+#
+SMTP_HOST = 'smtp.gmail.com'
+SMTP_PORT = '587'

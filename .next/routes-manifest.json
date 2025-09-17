@@ -1,1 +1,119 @@
-{"version":3,"caseSensitive":false,"basePath":"","rewrites":{"beforeFiles":[],"afterFiles":[],"fallback":[]},"redirects":[{"source":"/:path+/","destination":"/:path+","permanent":true,"internal":true,"regex":"^(?:\\/((?:[^\\/]+?)(?:\\/(?:[^\\/]+?))*))\\/$"}],"headers":[]}
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/courses/aws-ec2",
+      "regex": "^/courses/aws\\-ec2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/courses/aws\\-ec2(?:/)?$"
+    },
+    {
+      "page": "/courses/aws-iam",
+      "regex": "^/courses/aws\\-iam(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/courses/aws\\-iam(?:/)?$"
+    },
+    {
+      "page": "/courses/aws-lambda",
+      "regex": "^/courses/aws\\-lambda(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/courses/aws\\-lambda(?:/)?$"
+    },
+    {
+      "page": "/courses/aws-s3",
+      "regex": "^/courses/aws\\-s3(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/courses/aws\\-s3(?:/)?$"
+    },
+    {
+      "page": "/courses/aws-vpc",
+      "regex": "^/courses/aws\\-vpc(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/courses/aws\\-vpc(?:/)?$"
+    },
+    {
+      "page": "/docs/containers",
+      "regex": "^/docs/containers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/containers(?:/)?$"
+    },
+    {
+      "page": "/docs/database",
+      "regex": "^/docs/database(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/database(?:/)?$"
+    },
+    {
+      "page": "/docs/fabric-ledger",
+      "regex": "^/docs/fabric\\-ledger(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/fabric\\-ledger(?:/)?$"
+    },
+    {
+      "page": "/docs/infrastructure",
+      "regex": "^/docs/infrastructure(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/infrastructure(?:/)?$"
+    },
+    {
+      "page": "/docs/manual",
+      "regex": "^/docs/manual(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/manual(?:/)?$"
+    },
+    {
+      "page": "/docs/monitoring",
+      "regex": "^/docs/monitoring(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/monitoring(?:/)?$"
+    },
+    {
+      "page": "/docs/security",
+      "regex": "^/docs/security(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/security(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

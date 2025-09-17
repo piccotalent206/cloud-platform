@@ -1,7 +1,19 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
+  "/courses/aws-iam": "pages/courses/aws-iam.html",
+  "/docs/containers": "pages/docs/containers.html",
+  "/courses/aws-lambda": "pages/courses/aws-lambda.html",
+  "/docs/database": "pages/docs/database.html",
+  "/docs/fabric-ledger": "pages/docs/fabric-ledger.html",
+  "/docs/infrastructure": "pages/docs/infrastructure.html",
+  "/docs/manual": "pages/docs/manual.html",
+  "/": "pages/index.html",
+  "/docs/security": "pages/docs/security.html",
+  "/docs/monitoring": "pages/docs/monitoring.html",
+  "/courses/aws-ec2": "pages/courses/aws-ec2.html",
+  "/courses/aws-vpc": "pages/courses/aws-vpc.html",
+  "/courses/aws-s3": "pages/courses/aws-s3.html",
   "/_document": "pages/_document.js",
-  "/docs/[id]": "pages/docs/[id].js",
-  "/": "pages/index.js"
+  "/404": "pages/404.html"
 }

@@ -2,10 +2,10 @@
   "version": 4,
   "routes": {},
   "dynamicRoutes": {},
-  "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "8f23c9c2d1e9cf6d35013e89403271f2",
-    "previewModeSigningKey": "2bbfca835dcd6d2a3ea5c407892dc0a952455000352e0fdd551000541c8de70b",
-    "previewModeEncryptionKey": "fa84c7c72eeb7e0edd5c9f521962b8f7f09851ac940fc3434db03750daa392c2"
-  }
+    "previewModeId": "d28d5a3967b4e99e39b2ed889cbf03d5",
+    "previewModeSigningKey": "7f6b14dd16a2719f9e70974cb0b991169b3c4fa8334647d2cc152eee2b844ddc",
+    "previewModeEncryptionKey": "2a7f412e9e6e5f2bb480e4e61b00cf37884f625795975de6b7673dcb435b4e60"
+  },
+  "notFoundRoutes": []
 }

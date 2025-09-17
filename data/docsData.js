@@ -28,7 +28,7 @@ const docsData = {
   manual: {
     title: "Non CI/CD",
     description:
-      "Manual deployments are fine for development but not recommended for production.",
+      "Non CI/CD are script based to make deployment simpler.",
     img: "/icons/manual.png",
   },
 
@@ -42,6 +42,11 @@ const docsData = {
     title: "Database",
     description: "Manage SQL and NoSQL databases for your apps.",
     img: "/icons/database.png",
+  },
+    webserver: {
+    title: "Webserver",
+    description: "store website files and deliver web content via HTTP/HTTPS.",
+    img: "/icons/webserver.png",
   },
 };
 

@@ -5,7 +5,7 @@ export default function DocLayout({ title, description, children }) {
   return (
     <div className="doc-page">
       <Link href="/" className="back-link">
-        ← Back to Home
+        Home
       </Link>
 
       <h1 className="doc-title">{title}</h1>

@@ -97,6 +97,12 @@
       "regex": "^/docs/security(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/docs/security(?:/)?$"
+    },
+    {
+      "page": "/docs/webserver",
+      "regex": "^/docs/webserver(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs/webserver(?:/)?$"
     }
   ],
   "dataRoutes": [],

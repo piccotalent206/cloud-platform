@@ -1,15 +1,15 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import docsData from "../data/docsData"; // Path to your docsData.js
+import docsData from "../data/docsData";
 
 export default function Home() {
-  // Dynamically generate icons array from docsData
-  const icons = Object.keys(docsData).map((key) => ({
-    id: key,
-    title: docsData[key].title,
-    img: docsData[key].img,
-    description: docsData[key].description,
+  // Prepare icons list
+  const icons = Object.entries(docsData).map(([id, { title, img, description }]) => ({
+    id,
+    title,
+    img,
+    description,
   }));
 
   return (
@@ -26,6 +26,7 @@ export default function Home() {
             alt="Top Banner"
             width={700}
             height={180}
+            priority       // <-- preloads for faster above-the-fold display
             style={{ objectFit: "contain", width: "100%", height: "auto" }}
           />
         </div>
@@ -33,7 +34,13 @@ export default function Home() {
         {/* Heading */}
         <h1 className="heading fade-in">CloudOps</h1>
         <p className="subtitle fade-in">
-          Classic Cloud Operations • Non CI/CD • Fabric BlockChain
+          Cloud Operations • Non CI/CD • Fabric BlockChain
+        </p>
+
+        {/* Intro paragraph */}
+        <p className="intro fade-in">
+          Here you can find steps to setup a complete development and production
+          server for easy deployment and cost effective
         </p>
 
         {/* Center Logo */}
@@ -41,73 +48,50 @@ export default function Home() {
           <Image
             src="/images/logo.png"
             alt="Cloud Logo"
-            width={150}
-            height={150}
-            style={{ objectFit: "contain", width: "150px", height: "150px" }}
+            width={120}
+            height={120}
+            loading="lazy"
+            style={{ objectFit: "contain" }}
           />
         </div>
 
         {/* Icons Row */}
-        <div className="icons-row fade-in">
-          {icons.map((item, index) => (
-            <Link
-              key={item.id}
-              href={`/docs/${item.id}`}
-              passHref
-              style={{ textDecoration: "none" }}
-            >
-              <div
-                className="icon-card fade-in"
-                style={{ animationDelay: `${index * 0.08}s` }}
+        <div className="icons-wrapper">
+          <div className="icons-row fade-in">
+            {icons.map((item, index) => (
+              <Link
+                key={item.id}
+                href={`/docs/${item.id}`}
+                passHref
+                style={{ textDecoration: "none" }}
               >
-                {/* Icon */}
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  width={80}
-                  height={80}
-                  style={{ objectFit: "contain" }}
-                />
-
-                {/* Title */}
-                <p
-                  style={{
-                    marginTop: "8px",
-                    fontSize: "14px",
-                    fontWeight: "600",
-                    color: "#111827",
-                  }}
+                <div
+                  className="icon-card fade-in"
+                  style={{ animationDelay: `${index * 0.08}s` }}
                 >
-                  {item.title}
-                </p>
-
-                {/* Two description lines */}
-                {item.description && (
-                  <>
-                    <p
-                      style={{
-                        fontSize: "12px",
-                        color: "#6B7280",
-                        lineHeight: "1.4",
-                        marginTop: "4px",
-                      }}
-                    >
-                      {item.description.split(".")[0]}.
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "12px",
-                        color: "#6B7280",
-                        lineHeight: "1.4",
-                      }}
-                    >
-                      {item.description.split(".")[1] || ""}
-                    </p>
-                  </>
-                )}
-              </div>
-            </Link>
-          ))}
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    width={60}
+                    height={60}
+                    loading="lazy"
+                    style={{ objectFit: "contain", marginBottom: "8px" }}
+                  />
+                  <p className="card-title">{item.title}</p>
+                  {item.description && (
+                    <>
+                      <p className="card-text">
+                        {item.description.split(".")[0]}.
+                      </p>
+                      <p className="card-text">
+                        {item.description.split(".")[1] || ""}
+                      </p>
+                    </>
+                  )}
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -118,10 +102,8 @@ export default function Home() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
           background: linear-gradient(180deg, #f8fbff, #eaf3ff);
-          padding: 20px;
-          overflow: hidden;
+          padding: 40px 20px;
         }
 
         .banner {
@@ -130,12 +112,8 @@ export default function Home() {
           width: 100%;
         }
 
-        .logo {
-          margin-bottom: 2rem;
-        }
-
         .heading {
-          font-size: 2.5rem;
+          font-size: 2.2rem;
           font-weight: bold;
           color: #2563eb;
           margin-bottom: 0.5rem;
@@ -143,38 +121,74 @@ export default function Home() {
         }
 
         .subtitle {
-          font-size: 1.1rem;
+          font-size: 1rem;
           margin-bottom: 1rem;
           color: #374151;
           text-align: center;
         }
 
-        .icons-row {
+        .intro {
+          max-width: 600px;
+          text-align: center;
+          color: #4b5563;
+          font-size: 0.95rem;
+          line-height: 1.5;
+          margin-bottom: 2rem;
+        }
+
+        .logo {
+          margin-bottom: 2rem;
+        }
+
+        /* Wrapper to center and allow horizontal scroll if needed */
+        .icons-wrapper {
+          width: 100%;
           display: flex;
           justify-content: center;
-          align-items: flex-start;
-          gap: 30px;
-          flex-wrap: wrap;
-          width: 100%;
-          max-width: 1200px;
+          overflow-x: auto;
+          padding: 10px 0;
+          scrollbar-width: thin;
+        }
+
+        .icons-row {
+          display: flex;
+          gap: 24px;
+          flex-wrap: nowrap; /* Single line */
         }
 
         .icon-card {
-          text-align: center;
           background: #fff;
-          padding: 15px;
-          border-radius: 15px;
-          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-          cursor: pointer;
-          transition: transform 0.3s, box-shadow 0.3s;
-          width: 160px;
-          max-width: 180px;
-          flex: 1;
+          padding: 16px 12px;
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+          width: 180px;
+          height: 150px;
+          flex: 0 0 auto;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .icon-card:hover {
-          transform: scale(1.05);
-          box-shadow: 0px 6px 16px rgba(37, 99, 235, 0.4);
+          transform: translateY(-4px);
+          box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+        }
+
+        .card-title {
+          font-size: 14px;
+          font-weight: 600;
+          color: #111827;
+          margin: 6px 0 2px 0;
+        }
+
+        .card-text {
+          font-size: 12px;
+          color: #6b7280;
+          line-height: 1.3;
+          margin: 0;
         }
 
         @keyframes fadeInUp {
@@ -195,53 +209,20 @@ export default function Home() {
 
         /* Tablet */
         @media (max-width: 1024px) {
-          .icons-row {
-            gap: 20px;
-          }
           .icon-card {
-            width: 140px;
-            padding: 12px;
-          }
-          .banner img {
-            max-width: 500px;
-          }
-          .logo img {
-            width: 120px !important;
-            height: 120px !important;
-          }
-          .heading {
-            font-size: 2rem;
-          }
-          .subtitle {
-            font-size: 1rem;
+            width: 160px;
+            height: 140px;
           }
         }
 
         /* Mobile */
         @media (max-width: 768px) {
-          .page-container {
-            justify-content: space-evenly;
-          }
-          .icons-row {
-            flex-wrap: wrap;
-            gap: 15px;
-          }
           .icon-card {
-            width: 120px;
-            padding: 10px;
-          }
-          .banner img {
-            max-width: 320px;
-          }
-          .logo img {
-            width: 100px !important;
-            height: 100px !important;
+            width: 140px;
+            height: 130px;
           }
           .heading {
-            font-size: 1.6rem;
-          }
-          .subtitle {
-            font-size: 0.9rem;
+            font-size: 1.8rem;
           }
         }
       `}</style>

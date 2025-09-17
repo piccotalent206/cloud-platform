@@ -98,7 +98,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/media/piccosoft/backup3/projects/cloud-platform",
+    "outputFileTracingRoot": "/media/piccosoft/backup3/projects/platform",
     "experimental": {
       "useSkewCookie": false,
       "cacheLife": {
@@ -287,10 +287,10 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.js",
     "turbopack": {
-      "root": "/media/piccosoft/backup3/projects/cloud-platform"
+      "root": "/media/piccosoft/backup3/projects/platform"
     }
   },
-  "appDir": "/media/piccosoft/backup3/projects/cloud-platform",
+  "appDir": "/media/piccosoft/backup3/projects/platform",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

@@ -9,6 +9,7 @@ export default function Home() {
     id: key,
     title: docsData[key].title,
     img: docsData[key].img,
+    description: docsData[key].description,
   }));
 
   return (
@@ -59,6 +60,7 @@ export default function Home() {
                 className="icon-card fade-in"
                 style={{ animationDelay: `${index * 0.08}s` }}
               >
+                {/* Icon */}
                 <Image
                   src={item.img}
                   alt={item.title}
@@ -66,6 +68,8 @@ export default function Home() {
                   height={80}
                   style={{ objectFit: "contain" }}
                 />
+
+                {/* Title */}
                 <p
                   style={{
                     marginTop: "8px",
@@ -76,6 +80,31 @@ export default function Home() {
                 >
                   {item.title}
                 </p>
+
+                {/* Two description lines */}
+                {item.description && (
+                  <>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#6B7280",
+                        lineHeight: "1.4",
+                        marginTop: "4px",
+                      }}
+                    >
+                      {item.description.split(".")[0]}.
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#6B7280",
+                        lineHeight: "1.4",
+                      }}
+                    >
+                      {item.description.split(".")[1] || ""}
+                    </p>
+                  </>
+                )}
               </div>
             </Link>
           ))}
@@ -123,9 +152,9 @@ export default function Home() {
         .icons-row {
           display: flex;
           justify-content: center;
-          align-items: center;
+          align-items: flex-start;
           gap: 30px;
-          flex-wrap: nowrap;
+          flex-wrap: wrap;
           width: 100%;
           max-width: 1200px;
         }
@@ -138,8 +167,8 @@ export default function Home() {
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
           cursor: pointer;
           transition: transform 0.3s, box-shadow 0.3s;
-          width: 120px;
-          max-width: 140px;
+          width: 160px;
+          max-width: 180px;
           flex: 1;
         }
 
@@ -170,7 +199,7 @@ export default function Home() {
             gap: 20px;
           }
           .icon-card {
-            width: 100px;
+            width: 140px;
             padding: 12px;
           }
           .banner img {
@@ -198,7 +227,7 @@ export default function Home() {
             gap: 15px;
           }
           .icon-card {
-            width: 90px;
+            width: 120px;
             padding: 10px;
           }
           .banner img {

@@ -48,6 +48,11 @@ const docsData = {
     description: "store website files and deliver web content via HTTP/HTTPS.",
     img: "/icons/webserver.png",
   },
+      aws: {
+    title: "Aws",
+    description: "cloud provider to establish your application.",
+    img: "/icons/aws.png",
+  },
 };
 
 export default docsData;

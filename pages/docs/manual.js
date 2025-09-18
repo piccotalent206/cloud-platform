@@ -9,7 +9,7 @@ export default function ManualDeployment() {
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
-BRANCH="tnapex-dev"
+BRANCH="feature"
 
 # -------------------------------
 # 🔧 Configurable Variables
@@ -140,7 +140,7 @@ EOF
   };
 
   return (
-    <DocLayout title="Non CI/CD">
+    <DocLayout title="Non CI/CD using PM2 ">
       <h2>Overview</h2>
       <p>
         The detailed Non CI/CD process is good for development but not

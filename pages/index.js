@@ -4,7 +4,6 @@ import Image from "next/image";
 import docsData from "../data/docsData";
 
 export default function Home() {
-  // Prepare icons list
   const icons = Object.entries(docsData).map(([id, { title, img, description }]) => ({
     id,
     title,
@@ -26,7 +25,7 @@ export default function Home() {
             alt="Top Banner"
             width={700}
             height={180}
-            priority       // <-- preloads for faster above-the-fold display
+            priority
             style={{ objectFit: "contain", width: "100%", height: "auto" }}
           />
         </div>
@@ -140,20 +139,20 @@ export default function Home() {
           margin-bottom: 2rem;
         }
 
-        /* Wrapper to center and allow horizontal scroll if needed */
+        /* Wrapper now allows wrapping instead of horizontal scroll */
         .icons-wrapper {
           width: 100%;
           display: flex;
           justify-content: center;
-          overflow-x: auto;
           padding: 10px 0;
-          scrollbar-width: thin;
         }
 
         .icons-row {
           display: flex;
+          flex-wrap: wrap;      /* ✅ allow multiple lines */
+          justify-content: center;
           gap: 24px;
-          flex-wrap: nowrap; /* Single line */
+          max-width: 1200px;    /* optional max width */
         }
 
         .icon-card {
@@ -163,7 +162,6 @@ export default function Home() {
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
           width: 180px;
           height: 150px;
-          flex: 0 0 auto;
           text-align: center;
           display: flex;
           flex-direction: column;
@@ -207,7 +205,6 @@ export default function Home() {
           animation: fadeInUp 0.4s ease forwards;
         }
 
-        /* Tablet */
         @media (max-width: 1024px) {
           .icon-card {
             width: 160px;
@@ -215,7 +212,6 @@ export default function Home() {
           }
         }
 
-        /* Mobile */
         @media (max-width: 768px) {
           .icon-card {
             width: 140px;

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.13",
+    "lucide-react": "^0.544.0",
     "next": "latest",
     "prismjs": "^1.30.0",
     "react": "latest",
